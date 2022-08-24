@@ -28,9 +28,7 @@ function App() {
       <div className="container">
         <Header subtitle="Providing houses all over the world" />
         <Routes>
-          <Route path="/">
-            <FeaturedHouse house={featuredHouse}></FeaturedHouse>
-          </Route>
+          <Route path="/" element={<FeaturedHouse house={featuredHouse} />} />
         </Routes>
       </div>
     </Router>
