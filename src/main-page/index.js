@@ -4,6 +4,9 @@ import logo from "./logo.svg";
 import "./main-page.css";
 import Header from "./header";
 import FeaturedHouse from "./featured-house";
+import SearchResults from "../search-results";
+import HouseFilter from "./house-filter";
+import HouseFromQuery from "../house/HouseFromQuery";
 
 function App() {
   const [allHouses, setAllHouses] = useState([]);
@@ -27,7 +30,16 @@ function App() {
     <Router>
       <div className="container">
         <Header subtitle="Providing houses all over the world" />
+        <HouseFilter allHouses={allHouses} />
         <Routes>
+          <Route
+            path="/searchresults/:country"
+            element={<SearchResults allHouses={allHouses} />}
+          />
+          <Route
+            path="/house/:id"
+            element={<HouseFromQuery allHouses={allHouses} />}
+          />
           <Route path="/" element={<FeaturedHouse house={featuredHouse} />} />
         </Routes>
       </div>
